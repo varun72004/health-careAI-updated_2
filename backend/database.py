@@ -14,12 +14,15 @@ load_dotenv()
 # PostgreSQL connection string
 DATABASE_URL = os.getenv("DATABASE_URL")
 
-# Remove channel_binding parameter (not supported by psycopg2-binary)
-if DATABASE_URL and "channel_binding" in DATABASE_URL:
-    DATABASE_URL = DATABASE_URL.replace("&channel_binding=require", "").replace("?channel_binding=require&", "?").replace("?channel_binding=require", "")
+# Clean up connection string for Neon compatibility
+if DATABASE_URL:
+    DATABASE_URL = DATABASE_URL.replace("&amp;", "&")
+    DATABASE_URL = DATABASE_URL.replace("&channel_binding=require", "")
+    DATABASE_URL = DATABASE_URL.replace("?channel_binding=require&", "?")
+    DATABASE_URL = DATABASE_URL.replace("?channel_binding=require", "")
 
 # Core interface to the database
-engine = create_engine(DATABASE_URL)
+engine = create_engine(DATABASE_URL, pool_pre_ping=True)
 
 # Factory for generating temporary database sessions for each request
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)

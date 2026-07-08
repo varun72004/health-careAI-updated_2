@@ -111,16 +111,22 @@ if(registerForm) {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
             });
-            const data = await res.json();
             if(res.ok) {
+                const data = await res.json();
                 switchTab('login');
                 document.getElementById('loginUsername').value = payload.username;
                 showToast('Registration successful! Please login.', 'success');
             } else {
-                document.getElementById('regError').innerText = data.detail;
+                const text = await res.text();
+                try {
+                    const data = JSON.parse(text);
+                    document.getElementById('regError').innerText = data.detail || 'Registration failed.';
+                } catch {
+                    document.getElementById('regError').innerText = `Server error (${res.status}): ${text.substring(0, 100)}`;
+                }
             }
         } catch(err) {
-            document.getElementById('regError').innerText = 'Server error.';
+            document.getElementById('regError').innerText = 'Network error: ' + err.message;
         }
     });
 }
