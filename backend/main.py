@@ -91,9 +91,13 @@ async def get_current_user(token: str = Depends(oauth2_scheme), db: Session = De
 
 @app.post("/register", response_model=schemas.UserOut)
 def register(user: schemas.UserCreate, db: Session = Depends(get_db)):
-    db_user = db.query(models.User).filter(models.User.username == user.username).first()
-    if db_user:
+    db_username = db.query(models.User).filter(models.User.username == user.username).first()
+    if db_username:
         raise HTTPException(status_code=400, detail="Username already registered")
+        
+    db_email = db.query(models.User).filter(models.User.email == user.email).first()
+    if db_email:
+        raise HTTPException(status_code=400, detail="Email already registered")
         
     hashed_password = get_password_hash(user.password)
     new_user = models.User(
