@@ -170,9 +170,20 @@ def predict_symptoms(request: schemas.PredictionRequest, current_user: models.Us
 
 @app.post("/save_record")
 def save_prediction_record(request: schemas.SaveRecordRequest, current_user: models.User = Depends(get_current_user), db: Session = Depends(get_db)):
+    symptoms_str = ", ".join(request.symptoms)
+    
+    existing = db.query(models.PredictionHistory).filter(
+        models.PredictionHistory.user_id == current_user.id,
+        models.PredictionHistory.symptoms == symptoms_str,
+        models.PredictionHistory.predicted_disease == request.predicted_disease
+    ).first()
+    
+    if existing:
+        raise HTTPException(status_code=409, detail="This prediction is already saved in your history.")
+    
     history_entry = models.PredictionHistory(
         user_id=current_user.id,
-        symptoms=", ".join(request.symptoms),
+        symptoms=symptoms_str,
         predicted_disease=request.predicted_disease,
         medicines=request.medicines,
         diet=request.diet,

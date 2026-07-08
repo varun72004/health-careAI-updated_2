@@ -410,6 +410,8 @@ async function saveRecord() {
         if(res.ok) {
             showToast("Record saved successfully!", 'success');
             loadHistory();
+        } else if(res.status === 409) {
+            showToast(data.detail, 'error');
         } else {
             showToast("Error saving record.", 'error');
         }
