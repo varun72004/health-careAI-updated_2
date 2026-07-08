@@ -26,9 +26,9 @@ except Exception as e:
 try:
     # Load trained MultinomialNB model, label encoder, and feature list
     model_data = joblib.load(ROOT_DIR / 'trained_model.pkl')
-    model = model_data['model']               
-    le = model_data['label_encoder']          
-    features_list = model_data['features']    
+    model = model_data['model']
+    le = model_data['label_encoder']
+    features_list = model_data['features']
 except Exception as e:
     print(f"Error loading model: {e}")
     model = None
@@ -41,21 +41,23 @@ valid_symptoms = features_list
 
 # Resolves naming inconsistencies between ML output and CSV datasets
 DISEASE_MAPPING = {
-    "GERD": "GERD (Acid Reflux)", 
-    "Peptic ulcer diseae": "Peptic Ulcer", 
-    "Diabetes ": "Type 2 Diabetes", 
-    "Bronchial Asthma": "Asthma", 
-    "Hypertension ": "Hypertension", 
-    "Tuberculosis": "Tuberculosis (Recovery Phase)", 
-    "Pneumonia": "Bronchial Pneumonia (Recovery)", 
-    "Heart attack": "Coronary Artery Disease", 
-    "Varicose veins": "Varicose Veins", 
-    "Osteoarthristis": "Osteoarthritis", 
+    "GERD": "GERD (Acid Reflux)",
+    "Peptic ulcer diseae": "Peptic Ulcer",
+    "Diabetes ": "Type 2 Diabetes",
+    "Bronchial Asthma": "Asthma",
+    "Hypertension ": "Hypertension",
+    "Tuberculosis": "Tuberculosis (Recovery Phase)",
+    "Pneumonia": "Bronchial Pneumonia (Recovery)",
+    "Heart attack": "Coronary Artery Disease",
+    "Varicose veins": "Varicose Veins",
+    "Osteoarthristis": "Osteoarthritis",
     "Arthritis": "Rheumatoid Arthritis"
 }
 
 # --- 4. Prediction Logic ---
 def predict_disease_and_recommend(symptoms_input):
+    """Accept a list of symptom strings, return a prediction dict with
+    disease name, confidence, medications, diet, and workout."""
     if model is None:
         return {"error": "Model not loaded."}
 
@@ -64,19 +66,19 @@ def predict_disease_and_recommend(symptoms_input):
     for symptom in symptoms_input:
         if symptom in features_list:
             idx = features_list.index(symptom)
-            input_vector[idx] = 1 
-            
+            input_vector[idx] = 1
+
     # Step B: Run prediction via ML Model
     # Wrap in DataFrame to prevent sklearn feature-name warnings
     input_df = pd.DataFrame([input_vector], columns=features_list)
-    
+
     # Get probabilities to calculate confidence scores
     probabilities = model.predict_proba(input_df)[0]
-    
-    # Get top 3 predictions
+
+    # Get top 3 predictions sorted by descending probability
     top_indices = np.argsort(probabilities)[::-1][:3]
     top_predictions = []
-    
+
     for i in top_indices:
         pred_encoded = i
         pred_prob = float(probabilities[i])
@@ -86,12 +88,12 @@ def predict_disease_and_recommend(symptoms_input):
             "disease": mapped_disease,
             "confidence": round(pred_prob * 100, 2)
         })
-    
+
     # Top prediction is the first one
     best_prediction = top_predictions[0]
     mapped_disease = best_prediction["disease"]
     confidence = best_prediction["confidence"]
-    
+
     # Step C: Look up medication using partial string matching
     medicines = "Consult a doctor for appropriate medication."
     disease_desc = "Description not available."
@@ -102,7 +104,7 @@ def predict_disease_and_recommend(symptoms_input):
             medicines = match.iloc[0]['Medicine']
             disease_desc = match.iloc[0].get('Disease_Description', disease_desc)
             medicine_desc = match.iloc[0].get('Medicine_Description', medicine_desc)
-            
+
     # Step D: Look up diet & workout using exact case-insensitive match
     diet = "Maintain a balanced diet and stay hydrated."
     workout = "Engage in light physical activity as tolerated."
@@ -111,7 +113,7 @@ def predict_disease_and_recommend(symptoms_input):
         if not match_routine.empty:
             diet = match_routine.iloc[0]['Diet_Recommendation']
             workout = match_routine.iloc[0]['Workout_Recommendation']
-            
+
     return {
         "predicted_disease": mapped_disease,
         "confidence": confidence,

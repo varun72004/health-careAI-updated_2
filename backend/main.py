@@ -1,29 +1,37 @@
 # backend/main.py
 # ---------------------------------------------------------
-# FastAPI entry point. Handles routing, authentication, 
+# FastAPI entry point. Handles routing, authentication,
 # and connects incoming frontend requests to ML logic.
 # ---------------------------------------------------------
 
-from fastapi import FastAPI, Depends, HTTPException, status
-from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
-from sqlalchemy.orm import Session
+# Standard library
+import math
+import os
 from datetime import datetime, timedelta
-from jose import JWTError, jwt
-from passlib.context import CryptContext
 from typing import List
 
+# Third-party: FastAPI core
+from fastapi import FastAPI, Depends, HTTPException, status
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
+from fastapi.staticfiles import StaticFiles
+from starlette.requests import Request
+
+# Third-party: auth & ORM
+from jose import JWTError, jwt
+from passlib.context import CryptContext
+from sqlalchemy import or_
+from sqlalchemy.orm import Session
+
+# Third-party: environment
+from dotenv import load_dotenv
+
+# Local application modules
 from backend.database import engine, Base, get_db
 from backend import models
 from backend import schemas
-import os
-from dotenv import load_dotenv
-
-import math
-from sqlalchemy import or_
-
-from backend.logic import predict_disease_and_recommend, features_list, valid_symptoms
+from backend.logic import predict_disease_and_recommend, valid_symptoms
 
 # Load environment variables from .env file
 load_dotenv()
@@ -43,29 +51,34 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Global error handler to surface actual errors
-from fastapi.responses import JSONResponse
-from starlette.requests import Request
-
+# Global error handler to surface actual errors as JSON
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):
     return JSONResponse(status_code=500, content={"detail": str(exc)})
 
 # --- Security & Authentication (JWT) ---
-SECRET_KEY = os.getenv("SECRET_KEY", "fallback_secret_if_env_missing") 
+
+# JWT configuration loaded from environment with a safe fallback
+SECRET_KEY = os.getenv("SECRET_KEY", "fallback_secret_if_env_missing")
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 60
 
+# Password hashing context using bcrypt
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+# OAuth2 scheme that expects a bearer token from the /token endpoint
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 def verify_password(plain_password, hashed_password):
+    """Check a plain-text password against its bcrypt hash."""
     return pwd_context.verify(plain_password, hashed_password)
 
 def get_password_hash(password):
+    """Return the bcrypt hash of a plain-text password."""
     return pwd_context.hash(password)
 
 def create_access_token(data: dict, expires_delta: timedelta = None):
+    """Generate a signed JWT with an expiration claim."""
     to_encode = data.copy()
     if expires_delta:
         expire = datetime.utcnow() + expires_delta
@@ -77,6 +90,7 @@ def create_access_token(data: dict, expires_delta: timedelta = None):
 
 # Dependency to validate token and return the current user
 async def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
+    """Decode the JWT, look up the user, and raise 401 if anything fails."""
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Could not validate credentials",
@@ -97,16 +111,20 @@ async def get_current_user(token: str = Depends(oauth2_scheme), db: Session = De
 
 # --- API Routes ---
 
+# Register a new user account
 @app.post("/register", response_model=schemas.UserOut)
 def register(user: schemas.UserCreate, db: Session = Depends(get_db)):
+    # Reject duplicate usernames
     db_username = db.query(models.User).filter(models.User.username == user.username).first()
     if db_username:
         raise HTTPException(status_code=400, detail="Username already registered")
-        
+
+    # Reject duplicate emails
     db_email = db.query(models.User).filter(models.User.email == user.email).first()
     if db_email:
         raise HTTPException(status_code=400, detail="Email already registered")
-        
+
+    # Hash password and persist the new user
     hashed_password = get_password_hash(user.password)
     new_user = models.User(
         name=user.name,
@@ -121,6 +139,7 @@ def register(user: schemas.UserCreate, db: Session = Depends(get_db)):
     db.refresh(new_user)
     return new_user
 
+# Authenticate user and return a JWT access token
 @app.post("/token", response_model=schemas.Token)
 def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
     user = db.query(models.User).filter(models.User.username == form_data.username).first()
@@ -136,10 +155,12 @@ def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db:
     )
     return {"access_token": access_token, "token_type": "bearer"}
 
+# Return the currently authenticated user's profile
 @app.get("/users/me", response_model=schemas.UserOut)
 def read_users_me(current_user: models.User = Depends(get_current_user)):
     return current_user
 
+# Update editable fields on the current user's profile
 @app.put("/users/me", response_model=schemas.UserOut)
 def update_users_me(user_update: schemas.UserUpdate, current_user: models.User = Depends(get_current_user), db: Session = Depends(get_db)):
     if user_update.name is not None:
@@ -150,37 +171,42 @@ def update_users_me(user_update: schemas.UserUpdate, current_user: models.User =
         current_user.age = user_update.age
     if user_update.contact is not None:
         current_user.contact = user_update.contact
-        
+
     db.commit()
     db.refresh(current_user)
     return current_user
 
+# Return the full list of symptoms the ML model accepts
 @app.get("/symptoms", response_model=List[str])
 def get_symptoms():
     return valid_symptoms
 
+# Run disease prediction on the provided symptoms
 @app.post("/predict", response_model=schemas.PredictionResponse)
 def predict_symptoms(request: schemas.PredictionRequest, current_user: models.User = Depends(get_current_user), db: Session = Depends(get_db)):
     result = predict_disease_and_recommend(request.symptoms)
-    
+
     if "error" in result:
         raise HTTPException(status_code=500, detail=result["error"])
-        
+
     return result
 
+# Save a prediction result to the user's history (prevents duplicates)
 @app.post("/save_record")
 def save_prediction_record(request: schemas.SaveRecordRequest, current_user: models.User = Depends(get_current_user), db: Session = Depends(get_db)):
     symptoms_str = ", ".join(request.symptoms)
-    
+
+    # Check for an existing identical record to prevent duplicates
     existing = db.query(models.PredictionHistory).filter(
         models.PredictionHistory.user_id == current_user.id,
         models.PredictionHistory.symptoms == symptoms_str,
         models.PredictionHistory.predicted_disease == request.predicted_disease
     ).first()
-    
+
     if existing:
         raise HTTPException(status_code=409, detail="This prediction is already saved in your history.")
-    
+
+    # Persist the new history entry
     history_entry = models.PredictionHistory(
         user_id=current_user.id,
         symptoms=symptoms_str,
@@ -193,17 +219,19 @@ def save_prediction_record(request: schemas.SaveRecordRequest, current_user: mod
     db.commit()
     return {"message": "Record saved successfully"}
 
-
+# Retrieve paginated & searchable prediction history for the current user
 @app.get("/history", response_model=schemas.PaginatedHistoryOut)
 def get_user_history(
-    page: int = 1, 
+    page: int = 1,
     limit: int = 5,
     search: str = "",
-    current_user: models.User = Depends(get_current_user), 
+    current_user: models.User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
+    # Base query scoped to the current user
     query = db.query(models.PredictionHistory).filter(models.PredictionHistory.user_id == current_user.id)
-    
+
+    # Apply optional search filter across disease name and symptoms
     if search:
         search_term = f"%{search}%"
         query = query.filter(
@@ -212,16 +240,15 @@ def get_user_history(
                 models.PredictionHistory.symptoms.ilike(search_term)
             )
         )
-        
 
+    # Compute pagination metadata
     total_records = query.count()
     total_pages = math.ceil(total_records / limit) if total_records > 0 else 1
-    
-    # Calculate offset
+
+    # Calculate offset and fetch the page of results (newest first)
     offset = (page - 1) * limit
-    
     history = query.order_by(models.PredictionHistory.created_at.desc()).offset(offset).limit(limit).all()
-    
+
     return {
         "total_records": total_records,
         "total_pages": total_pages,
@@ -229,21 +256,22 @@ def get_user_history(
         "records": history
     }
 
-
+# Delete a single history record owned by the current user
 @app.delete("/history/{record_id}")
 def delete_user_history(record_id: int, current_user: models.User = Depends(get_current_user), db: Session = Depends(get_db)):
     record = db.query(models.PredictionHistory).filter(
         models.PredictionHistory.id == record_id,
         models.PredictionHistory.user_id == current_user.id
     ).first()
-    
+
     if not record:
         raise HTTPException(status_code=404, detail="Record not found")
-        
+
     db.delete(record)
     db.commit()
     return {"message": "Record deleted successfully"}
 
 # --- Serve Frontend ---
+# Mount the static frontend directory so the app serves HTML/CSS/JS at "/"
 frontend_path = os.path.join(os.path.dirname(__file__), "../frontend")
 app.mount("/", StaticFiles(directory=frontend_path, html=True), name="frontend")
