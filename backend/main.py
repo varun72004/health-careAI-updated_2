@@ -43,6 +43,14 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Global error handler to surface actual errors
+from fastapi.responses import JSONResponse
+from starlette.requests import Request
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    return JSONResponse(status_code=500, content={"detail": str(exc)})
+
 # --- Security & Authentication (JWT) ---
 SECRET_KEY = os.getenv("SECRET_KEY", "fallback_secret_if_env_missing") 
 ALGORITHM = "HS256"
