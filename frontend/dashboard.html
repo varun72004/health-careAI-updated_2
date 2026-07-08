@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare AI - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="dashboard-body">
+    <nav class="navbar">
+        <div style="display: flex; align-items: center; gap: 12px;">
+            <div style="width: 36px; height: 36px; background: rgba(15, 118, 110, 0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--primary);">
+                <i data-lucide="activity" class="animate-heartbeat" style="width: 20px; height: 20px;"></i>
+            </div>
+            <h2 class="gradient-text">Healthcare AI</h2>
+        </div>
+        <div class="user-profile">
+            <span id="userNameDisplay">Welcome, User</span>
+            <button onclick="toggleTheme()" class="secondary-btn small" id="themeToggleBtn">
+                <i data-lucide="moon" style="width: 16px; height: 16px;"></i>
+                Dark Mode
+            </button>
+            <button onclick="openProfileModal()" class="secondary-btn small">
+                <i data-lucide="user" style="width: 16px; height: 16px;"></i>
+                Profile
+            </button>
+            <a href="index.html" class="secondary-btn small">
+                <i data-lucide="home" style="width: 16px; height: 16px;"></i>
+                Home
+            </a>
+            <button onclick="logout()" class="secondary-btn small">
+                <i data-lucide="log-out" style="width: 16px; height: 16px;"></i>
+                Logout
+            </button>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Main Prediction Form -->
+        <div class="card symptom-card">
+            <h3>Diagnostic Assistant</h3>
+            <p class="subtitle">Search and select symptoms to receive a highly accurate, AI-generated medical analysis.</p>
+            
+            <div class="custom-search">
+                <div style="position: relative;">
+                    <i data-lucide="search" style="position: absolute; left: 16px; top: 16px; color: var(--text-light); width: 20px; height: 20px;"></i>
+                    <input type="text" id="symptomSearchInput" placeholder="Search for symptoms (e.g., headache, fever)..." onkeyup="filterSymptoms()" onfocus="showDropdown()" style="padding-left: 48px;">
+                </div>
+                <div id="symptomDropdownList" class="custom-dropdown-list hidden">
+                    <!-- Dropdown options injected here -->
+                </div>
+            </div>
+            
+            <div id="selectedSymptoms" class="tags-container">
+                <!-- Symptoms will appear here as tags -->
+            </div>
+            
+            <button onclick="predictDisease()" class="primary-btn predict-btn">
+                <i data-lucide="brain-circuit" style="width: 20px; height: 20px;"></i>
+                Analyze Symptoms
+            </button>
+        </div>
+
+        <!-- Results Display -->
+        <div id="resultsSection" class="results-grid hidden">
+            <div class="result-card disease card">
+                <div class="disease-info">
+                    <div class="icon">
+                        <i data-lucide="stethoscope"></i>
+                    </div>
+                    <h4>Predicted Condition</h4>
+                    <h2 id="resDisease" class="gradient-text">...</h2>
+                    <p id="resDiseaseDesc" class="text-muted" style="font-size: 0.95rem; line-height: 1.5; margin-top: 10px;"></p>
+                </div>
+                <div id="confidenceMeter" class="confidence-meter-container" style="display: none;"></div>
+            </div>
+            
+            <div class="result-card medicine card">
+                <div class="icon">
+                    <i data-lucide="pill"></i>
+                </div>
+                <h4>Recommended Medicine</h4>
+                <p id="resMedicine" style="font-weight: 600;">...</p>
+                <p id="resMedicineDesc" class="text-muted" style="font-size: 0.9rem; line-height: 1.4; margin-top: 8px;"></p>
+            </div>
+            
+            <div class="result-card diet card">
+                <div class="icon">
+                    <i data-lucide="apple"></i>
+                </div>
+                <h4>Dietary Plan</h4>
+                <p id="resDiet">...</p>
+            </div>
+            
+            <div class="result-card workout card">
+                <div class="icon">
+                    <i data-lucide="activity-square"></i>
+                </div>
+                <h4>Workout Routine</h4>
+                <p id="resWorkout">...</p>
+            </div>
+            
+            <div style="grid-column: 1 / -1; text-align: center; margin-top: 15px;">
+                <button onclick="saveRecord()" class="primary-btn" style="width: auto; padding: 0.875rem 2.5rem;">
+                    <i data-lucide="save" style="width: 18px; height: 18px;"></i>
+                    Save Record to History
+                </button>
+            </div>
+        </div>
+
+        <!-- History Display -->
+        <div class="card history-card">
+            <div class="header-row">
+                <h3>Patient History</h3>
+                <div class="history-controls" style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+                    <div class="input-group" style="margin-bottom: 0;">
+                        <input type="text" id="historySearch" placeholder="Search diseases or symptoms..." style="padding: 0.5rem; width: 300px;" oninput="onHistorySearch()">
+                    </div>
+                    <button onclick="loadHistory()" class="secondary-btn small">
+                        <i data-lucide="refresh-cw" style="width: 14px; height: 14px;"></i>
+                        Sync
+                    </button>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table id="historyTable">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Symptoms Logged</th>
+                            <th>AI Diagnosis</th>
+                            <th style="text-align: right;">ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyBody">
+                        <!-- History injected here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="pagination-controls" style="display: flex; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border);">
+                <button onclick="changePage(-1)" id="prevPageBtn" class="secondary-btn small" disabled>Previous</button>
+                <span id="pageIndicator" style="color: var(--text-light); font-size: 0.9rem;">Page 1 of 1</span>
+                <button onclick="changePage(1)" id="nextPageBtn" class="secondary-btn small" disabled>Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div id="profileModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="gradient-text">Update Profile</h3>
+                <button class="close-btn" onclick="closeProfileModal()">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+            
+            <form id="profileForm" class="auth-form" style="animation: none;">
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Full Name</label>
+                        <input type="text" id="profName" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Username (Read-Only)</label>
+                        <input type="text" id="profUsername" readonly style="background-color: rgba(15, 23, 42, 0.05); color: var(--text-light); cursor: not-allowed;">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" id="profEmail" required>
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label>Age</label>
+                        <input type="number" id="profAge" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Contact Number</label>
+                        <input type="text" id="profContact" required pattern="\d{10}" maxlength="10" title="Contact number must be exactly 10 digits.">
+                    </div>
+                </div>
+                <button type="submit" class="primary-btn">
+                    Save Changes
+                    <i data-lucide="save" style="width: 18px; height: 18px;"></i>
+                </button>
+                <div id="profError" class="error-msg"></div>
+                <div id="profSuccess" class="error-msg" style="color: var(--success);"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- History Record Modal -->
+    <div id="historyModal" class="modal-overlay hidden">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="modal-header">
+                <h3 class="gradient-text">Record Details</h3>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <button class="secondary-btn small" onclick="downloadPDF()">
+                        <i data-lucide="download" style="width: 14px; height: 14px;"></i> PDF
+                    </button>
+                    <button class="secondary-btn small" onclick="downloadCSV()">
+                        <i data-lucide="download" style="width: 14px; height: 14px;"></i> CSV
+                    </button>
+                    <button class="close-btn" onclick="closeHistoryModal()">
+                        <i data-lucide="x"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="record-details" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div>
+                    <strong style="color: var(--text-light); font-size: 0.9rem; text-transform: uppercase;">Date</strong>
+                    <div id="histDate" style="font-weight: 500; margin-top: 0.25rem;"></div>
+                </div>
+                <div>
+                    <strong style="color: var(--text-light); font-size: 0.9rem; text-transform: uppercase;">Symptoms</strong>
+                    <div id="histSymptoms" style="margin-top: 0.25rem;"></div>
+                </div>
+                <div>
+                    <strong style="color: var(--text-light); font-size: 0.9rem; text-transform: uppercase;">Predicted Disease</strong>
+                    <div style="margin-top: 0.5rem;">
+                        <span id="histDisease" class="table-tag" style="font-size: 1rem;"></span>
+                    </div>
+                </div>
+                <div style="background: rgba(15, 118, 110, 0.05); padding: 1.5rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
+                    <h4 style="margin-top: 0; margin-bottom: 1rem; color: var(--primary);">Treatment Plan</h4>
+                    <div style="margin-bottom: 1rem;">
+                        <strong style="display: block; font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.25rem;">Medicines</strong>
+                        <div id="histMedicines"></div>
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <strong style="display: block; font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.25rem;">Diet</strong>
+                        <div id="histDiet"></div>
+                    </div>
+                    <div>
+                        <strong style="display: block; font-size: 0.9rem; color: var(--text-light); margin-bottom: 0.25rem;">Workout</strong>
+                        <div id="histWorkout"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal-overlay hidden">
+        <div class="modal-content" style="max-width: 400px; text-align: center; padding: 2rem;">
+            <div style="width: 48px; height: 48px; background: rgba(239, 68, 68, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; color: #ef4444;">
+                <i data-lucide="triangle-alert" style="width: 24px; height: 24px;"></i>
+            </div>
+            <h3 style="margin-bottom: 0.5rem; color: var(--text-dark);">Delete Record?</h3>
+            <p style="color: var(--text-light); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.5;">
+                Are you sure you want to permanently delete this prediction record? This action cannot be undone.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center;">
+                <button type="button" onclick="closeDeleteModal()" class="secondary-btn" style="flex: 1;">Cancel</button>
+                <button type="button" onclick="confirmDelete()" class="primary-btn" style="flex: 1; background: #ef4444; border-color: #ef4444; justify-content: center;">Delete</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container"></div>
+    
+    <!-- Loading Spinner -->
+    <div id="spinnerOverlay" class="spinner-overlay">
+        <div class="spinner"></div>
+        <h3 id="spinnerText">Analyzing Symptoms...</h3>
+    </div>
+    
+    <!-- jsPDF for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

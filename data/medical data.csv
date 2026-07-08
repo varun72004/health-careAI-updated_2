@@ -1,288 +1,42 @@
-Name,DateOfBirth,Gender,Symptoms,Causes,Disease,Medicine
-John Doe,15-05-1980,Male,"Fever, Cough",Viral Infection,Common Cold,"Ibuprofen, Rest"
-Jane Smith,10-08-1992,Female,"Headache, Fatigue",Stress,Migraine,Sumatriptan
-Michael Lee,20-02-1975,Male,Shortness of breath,Pollution,Asthma,Albuterol Inhaler
-Emily Chen,03-11-1988,Female,"Nausea, Vomiting",Food Poisoning,Gastroenteritis,Oral Rehydration
-Alex Wong,12-06-2001,Male,Sore Throat,Bacterial Infection,Strep Throat,Penicillin
-Sarah Kim,25-03-1972,Female,"Joint Pain, Fatigue",Rheumatoid Arthritis,Arthritis,NSAIDs
-David Wu,18-09-1995,Male,"Chest Pain, Dizziness",High Blood Pressure,Hypertension,Amlodipine
-Olivia Tan,08-07-1987,Female,"Itching, Redness",Allergies,Allergic Reaction,Antihistamine
-Chris Ng,01-12-1983,Male,"Abdominal Pain, Bloating",Poor Diet,Indigestion,Antacids
-Samantha Liu,30-04-1998,Female,"Fatigue, Sadness",Depression,Major Depressive,Sertraline
-,,,,,,
-Kevin Yeo,22-10-1978,Male,"Fever, Muscle Aches",Viral Infection,Influenza,Acetaminophen
-Grace Lim,14-01-2005,Female,"Cough, Sneezing",Cold Weather,Common Cold,"Honey, Rest"
-Daniel Oh,19-07-1990,Male,"Nausea, Dizziness",Motion Sickness,Motion Sickness,Dimenhydrinate
-Linda Goh,08-09-1982,Female,Shortness of breath,Smoking,Chronic Bronchitis,Inhalers
-Ryan Tan,02-06-1971,Male,"Headache, Blurred Vision",Migraine Triggers,Migraine,Beta-blockers
-Ella Chu,12-03-1999,Female,"Stomach Pain, Diarrhea",Spicy Food,Gastritis,"Antacids, Rest"
-Peter Ho,25-04-1986,Male,"Joint Pain, Swelling",Autoimmune Response,Rheumatoid Arthritis,NSAIDs
-Hannah Wong,09-12-2002,Female,"Fever, Sore Throat",Viral Infection,Tonsillitis,"Fluids, Rest"
-Jack Tan,07-08-1979,Male,"Back Pain, Numbness",Herniated Disc,Sciatica,Pain Relievers
-Michelle Lam,17-11-1993,Female,"Nausea, Vomiting",Pregnancy,Morning Sickness,"Ginger, Vitamin B6"
-William Low,28-05-1989,Male,"Fatigue, Weakness",Anemia,Iron Deficiency,Iron Supplements
-Sophia Teo,03-02-2000,Female,"Anxiety, Rapid Heartbeat",Stress,Panic Disorder,Cognitive Therapy
-Andrew Ng,16-07-1974,Male,Shortness of breath,Obesity,Sleep Apnea,CPAP Machine
-Karen Tan,30-09-1984,Female,"Skin Rash, Itching",Allergies,Dermatitis,Topical Steroids
-Eric Koh,08-01-1997,Male,"Cough, Fever",Viral Infection,Respiratory infection,"Antivirals, Rest"
-,,,,,,
-Amy Lim,05-03-1981,Female,"Joint Pain, Fatigue",Osteoarthritis,Arthritis,Pain Relievers
-Jason Lee,11-06-2003,Male,"Dizziness, Fatigue",Dehydration,Heat Exhaustion,"Hydration, Rest"
-Natalie Tan,19-10-1987,Female,"Headache, Sensitivity",Tension,Tension Headache,"Relaxation, NSAIDs"
-Oscar Neo,02-09-1994,Male,"Abdominal Pain, Bloating O",vereating            ,Indigestion,Antacids
-Sophie Goh,14-12-2001,Female,"Nausea, Cramps",Menstrual Cycle,Menstrual Cramps,Pain Relievers
-Vincent Teo,26-08-1977,Male,"Chest Pain, Shortness of breath",Heart Disease,Coronary ArteryDisease,Nitroglycerin
-,,,,,,
-Isabella Koh,08-04-1996,Female,"Fatigue, Difficulty breathing",Hypothyroidism,Thyroid Disorder,Levothyroxine
-,,,,,,
-Ethan Lim,30-11-1980,Male,"Fever, Chills",Infection,Pneumonia,"Antibiotics, Rest"
-Emma Tan,03-07-1991,Female,"Cough, Shortness of breath",COVID-19 Exposure,COVID-19,"Isolation, Fluids"
-Grace Ng,16-09-1988,Female,"Itching, Redness",Allergies,Allergic Reaction,Antihistamine
-Ryan Koh,18-02-1975,Male,"Muscle Pain, Fatigue",Overexertion,Muscle Strain,"Rest, Pain Relievers"
-Sophia Tan,21-05-2004,Female,"Nausea, Vomiting",Food Poisoning,Gastroenteritis,Oral Rehydration
-David Lim,05-10-1999,Male,"Headache, Blurred Vision",Eye Strain,Vision Fatigue,"Rest, Eye Exercises"
-Oliver Wang,14-08-1986,Male,"Stomach Pain, Diarrhea",Food Poisoning,Gastroenteritis,"Fluids, Bland Diet"
-Ava Yeo,25-01-1973,Female,"Back Pain, Numbness",Sciatica,Herniated Disc,"Pain Relievers, PT"
-Lucas Tan,09-09-2000,Male,"Fever, Sore Throat",Viral Infection,Tonsillitis,"Fluids, Rest"
-Grace Lee,07-12-1992,Female,"Fatigue, Weakness",Chronic Fatigue Syndrome,Chronic Fatigue Syndrome,"Rest, Lifestyle"
-,,,,,,
-Sophie Neo,28-06-1983,Female,"Anxiety, Palpitations",Stress,Anxiety Disorder,"Therapy, Medication"
-Evan Teo,17-03-2002,Male,"Chest Pain, Shortness of breath",Physical Exertion,Muscle Overuse,"Rest, Stretching"
-,,,,,,
-Lily Lim,26-04-1989,Female,"Joint Pain, Swelling",Rheumatoid Arthritis,Arthritis,NSAIDs
-Leo Goh,13-07-1998,Male,"Nausea, Dizziness",Motion Sickness,Motion Sickness,Dimenhydrinate
-John Doe,15-05-1980,Male,"Fever, Cough",Viral Infection,Common Cold,"Ibuprofen, Rest"
-Jane Smith,10-08-1992,Female,"Headache, Fatigue",Stress,Migraine,Sumatriptan
-Michael Lee,20-02-1975,Male,Shortness of breath,Pollution,Asthma,Albuterol Inhaler
-Emily Chen,03-11-1988,Female,"Nausea, Vomiting",Food Poisoning,Gastroenteritis,Oral Rehydration
-Alex Wong,12-06-2001,Male,Sore Throat,Bacterial Infection,Strep Throat,Penicillin
-Sarah Kim,25-03-1972,Female,"Joint Pain, Fatigue",Rheumatoid Arthriti,s  Arthritis,NSAIDs
-David Wu,18-09-1995,Male,"Chest Pain, Dizziness",High Blood Pressure,Hypertension,Amlodipine
-Olivia Tan,08-07-1987,Female,"Itching, Redness",Allergies,Allergic Reaction,Antihistamine
-Chris Ng,01-12-1983,Male,"Abdominal Pain, Bloating",Poor Diet,Indigestion,Antacids
-Samantha Liu,30-04-1998,Female,"Fatigue, Sadness",Depression,Major Depressive Disorder, Sertraline
-,,,,,,
-Evan Teo,17-03-2002,Male,"Chest Pain, Shortness of breath",Physical Exertion,Muscle Overuse,"Rest, Stretching"
-,,,,,,
-Lily Lim,26-04-1989,Female,"Joint Pain, Swelling",Rheumatoid Arthritis,Arthritis,NSAIDs
-Leo Goh,13-07-1998,Male,"Nausea, Dizziness",Motion Sickness,Motion Sickness,Dimenhydrinate
-Sophia Koh,29-11-1976,Female,"Fatigue, Weakness",Chronic Fatigue Syndrome,Chronic Fatigue Syndrome,"Rest, Lifestyle"
-,,,,,,
-Isaac Tan,18-02-1999,Male,"Fever, Chills",Infection,Pneumonia,"Antibiotics, Rest"
-Emma Lim,03-07-1991,Female,"Cough, Shortness of breat",h  COVID-19 Exposure,COVID-19,"Isolation, Fluids"
-Grace Neo,16-09-1988,Female,"Itching, Redness",Allergies,Allergic Reacti,on   Antihistamine
-Ryan Koh,18-02-1975,Male,"Muscle Pain, Fatigue",Overexertion,Muscle Strain,"Rest, Pain Relievers"
-Sophia Tan,21-05-2004,Female,"Nausea, Vomiting",Food Poisoning,Gastroenteritis,Oral Rehydration
-David Lim,05-10-1999,Male,"Headache, Blurred Vision",Eye Strain,Vision Fatigue,"Rest, Eye Exercises"
-Oliver Wang,14-08-1986,Male,"Stomach Pain, Diarrhea",Food Poisoning,Gastroenteritis,"Fluids, Bland Diet"
-Ava Yeo,25-01-1973,Female,"Back Pain, Numbness",Sciatica,Herniated Disc,"Pain Relievers, PT"
-Lucas Tan,09-09-2000,Male,"Fever, Sore Throat",Viral Infection,Tonsillitis,"Fluids, Rest"
-Grace Lee,07-12-1992,Female,"Fatigue, Weakness",Chronic Fatigue Syndrome,Chronic Fatigue Syndrome,"Rest, Lifestyle"
-,,,,,,
-Sophie Neo,28-06-1983,Female,"Anxiety, Palpitations",Stress,Anxiety Disorder," Therapy, Medication"
-Evan Teo,17-03-2002,Male,"Chest Pain, Shortness",Physical Exertion,Muscle Overuse,"Rest, Stretching"
-,,,of breath,,,
-Lily Lim,26-04-1989,Female,"Joint Pain, Swelling",Rheumatoid Arthritis,Arthritis,NSAIDs
-Leo Goh,13-07-1998,Male,"Nausea, Dizziness",Motion Sickness,Motion Sickness,Dimenhydrinate
-Sophia Koh,29-11-1976,Female,"Fatigue, Weakness",Chronic Fatigue Syndrome,Chronic Fatigue,"Rest, Lifestyle"
-,,,,,Syndrome,
-Isaac Tan,18-02-1999,Male,"Fever, Chills",Infection,Pneumonia,"Antibiotics, Rest"
-Emma Lim,03-07-1991,Female,"Cough, Shortness of breat",h  COVID-19 Exposure,COVID-19,"Isolation, Fluids"
-Grace Neo,16-09-1988,Female,"Itching, Redness",Allergies,Allergic Reacti,on   Antihistamine
-Ryan Koh,18-02-1975,Male,"Muscle Pain, Fatigue",Overexertion,Muscle Strain,"Rest, Pain Relievers"
-Sophia Tan,21-05-2004,Female,"Nausea, Vomiting",Food Poisoning,Gastroenteritis,Oral Rehydration
-David Lim,05-10-1999,Male,"Headache, Blurred Vision",Eye Strain,Vision Fatigue,"Rest, Eye Exercises"
-Oliver Wang,14-08-1986,Male,"Stomach Pain, Diarrhea",Food Poisoning,Gastroenteritis,"Fluids, Bland Diet"
-Ava Yeo,25-01-1973,Female,"Back Pain, Numbness",Sciatica,Herniated Disc,"Pain Relievers, PT"
-Lucas Tan,09-09-2000,Male,"Fever, Sore Throat",Viral Infection,Tonsillitis,"Fluids, Rest"
-Grace Lee,07-12-1992,Female,"Fatigue, Weakness",Chronic Fatigue Syndrome,Chronic Fatigue Syndrome,"Rest, Lifestyle"
-,,,,,,
-Sophie Neo,28-06-1983,Female,"Anxiety, Palpitations",Stress,Anxiety Disorder," Therapy, Medication"
-Evan Teo,17-03-2002,Male,"Chest Pain, Shortness of breath",Physical Exertion,Muscle Overuse,"Rest, Stretching"
-,,,,,,
-Lily Lim,26-04-1989,Female,"Joint Pain, Swelling",Rheumatoid Arthritis, Arthritis,NSAIDs
-Leo Goh,13-07-1998,Male,"Nausea, Dizziness",Motion Sickness,Motion Sickness,Dimenhydrinate
-Sophia Koh,29-11-1976,Female,"Fatigue, Weakness",Chronic Fatigue Syndrome,Chronic Fatigue Syndrome,"Rest, Lifestyle"
-,,,,,,
-Isabella Goh,14-03-1984,Female,"Abdominal Pain, Bloating",Overeating,Indigestion,Antacids
-Jackson Tan,22-09-1997,Male,"Fatigue, Weakness",Anemia,Iron Deficiency,Iron Supplements
-Sophie Lim,05-06-2000,Female," Anxiety, Rapid Heartbeat",Stress,Panic Disorder,Cognitive Therapy
-Ethan Teo,03-08-1978,Male,Shortness of breath,Obesity,Sleep Apnea,CPAP Machine
-Linda Neo,28-04-1989,Female," Skin Rash, Itching",Allergies,Dermatitis,Topical Steroids
-Alex Koh,11-12-1995,Male,"Cough, Fever",Viral Infection,RespiratoryInfection,"Antivirals, Rest"
-,,,,,,
-Amy Tan,15-03-1981,Female,"Joint Pain, Fatigue",Osteoarthritis,Arthritis,Pain Relievers
-Jason Goh,29-07-2003,Male,"Dizziness, Fatigue",Dehydration,Heat Exhaustion," Hydration, Rest"
-Natalie Lim,19-10-1987,Female,"Headache, Sensitivity",Tension,Tension Headache,"Relaxation, NSAIDs"
-Oscar Lee,09-09-1994,Male,"Abdominal Pain, Bloating",Overeating,Indigestion,Antacids
-Sophie Yeo,02-12-2001,Female,"Nausea, Cramps",Menstrual Cycle,Menstrual Cramps, Pain Relievers
-Vincent Tan,26-08-1977,Male,"Chest Pain, Shortness of breath",Heart Disease,Coronary Artery,"  Nitroglycerin,Aspirin"
-,,,,,,
-Isabella Koh,08-04-1996,Female,"Fatigue, Difficulty breathing",Hypothyroidism,Thyroid Disorder,  Levothyroxine
-,,,,,,
-Ethan Lim,30-11-1980,Male,"Fever, Chills",Infection,Pneumonia,"Antibiotics, Rest"
-Emma Tan,03-07-1991,Femal,"Cough, Shortness of brea",th  COVID-19 Exposure,COVID-19,"Isolation, Fluids"
-Grace Ng,16-09-1988,Femal,"e Itching, Redness",Allergies,Allergic Reaction, Antihistamine
-Ryan Koh,18-02-1975,Male,"Muscle Pain, Fatigue",Overexertion,Muscle Strain,"Rest, Pain Relievers"
-Sophia Tan,21-05-2004,Femal," Nausea, Vomiting",Food Poisoning,Gastroenteritis,  Oral Rehydration
-David Lim,05-10-1999,Male,"Headache, Blurred Vision",Eye Strain,Vision Fatigue,"Rest, Eye Exercises"
-Oliver Wang,14-08-1986,Male,"Stomach Pain, Diarrhea",Food Poisoning,Gastroenteritis,"  Fluids, Bland Diet"
-Ava Yeo,25-01-1973,Femal," Back Pain, Numbness",Sciatica,Herniated Disc,"Pain Relievers, PT"
-Lucas Tan,09-09-2000,Male,"Fever, Sore Throat",Viral Infection,Tonsillitis,"Fluids, Rest"
-Grace Lee,07-12-1992,Femal," Fatigue, Weakness",Chronic Fatigue Syndrome,Chronic Fatigue Syndrome,"  Rest, Lifestyle"
-,,,,,,
-Sophie Neo,28-06-1983,Femal," Anxiety, Palpitations",Stress,Anxiety Disorder,"Therapy, Medication"
-Evan Teo,17-03-2002,Male,"Chest Pain, Shortness",Physical Exertion,Muscle Overuse,"Rest, Stretching"
-,,,of breath,,,
-Lily Lim,26-04-1989,Femal,"e Joint Pain, Swelling",Rheumatoid Arthrit,is  Arthritis,NSAIDs
-Leo Goh,13-07-1998,Male,"Nausea, Dizziness",Motion Sickness,Motion Sickness, Dimenhydrinate
-Sophia Koh,29-11-1976,Femal,"e Fatigue, Weakness",Chronic Fatigue,Chronic Fatigue,"Rest, Lifestyle"
-,,,,Syndrome,Syndrome,
-Isaac Tan,18-02-1999,Male,"Fever, Chills",Infection,Pneumonia,"Antibiotics, Rest"
-Emma Lim,03-07-1991,Femal,"e Cough, Shortness of brea",th  COVID-19 Exposure,COVID-19,"Isolation, Fluids"
-Grace Neo,16-09-1988,Femal,"e Itching, Redness",Allergies,Allergic Reaction, Antihistamine
-Ryan Koh,18-02-1975,Male,"Muscle Pain, Fatigue",Overexertion,Muscle Strain,"Rest, Pain Relievers"
-Sophia Tan,21-05-2004,Femal,"e Nausea, Vomiting",Food Poisoning,Gastroenteritis,Oral Rehydration
-David Lim,05-10-1999,Male,"Headache, Blurred Vision",Eye Strain,Vision Fatigue,"Rest, Eye Exercises"
-Oliver Wang,14-08-1986,Male,"Stomach Pain, Diarrhea",Food Poisoning,Gastroenteritis,"Fluids, Bland Diet"
-Ava Yeo,25-01-1973,Femal,"e Back Pain, Numbness",Sciatica,Herniated Disc,"Pain Relievers, PT"
-Lucas Tan,09-09-2000,Male,"Fever, Sore Throat",Viral Infection,Tonsillitis,"Fluids, Rest"
-Grace Lee,07-12-1992,Femal,"e Fatigue, Weakness",Chronic Fatigue,Chronic Fatigue,"Rest, Lifestyle"
-,,,,Syndrome,Syndrome,
-Sophie Neo,28-06-1983,Femal,"e Anxiety, Palpitations",Stress,Anxiety Disorder,"Therapy, Medication"
-Evan Teo,17-03-2002,Male,"Chest Pain, Shortness",Physical Exertion,Muscle Overuse,"Rest, Stretching"
-,,,of breath,,,
-Lily Lim,26-04-1989,Femal,"e Joint Pain, Swelling",Rheumatoid Arthritis, Arthritis,NSAIDs
-Leo Goh,13-07-1998,Male,"Nausea, Dizziness",Motion Sickness,Motion Sickness, Dimenhydrinate
-Sophia Koh,29-11-1976,Femal,"e Fatigue, Weakness",Chronic Fatigue Syndrome,Chronic Fatigue Syndrome," Rest, Lifestyle"
-,,,,,,
-Isaac Tan,18-02-1999,Male,"Fever, Chills",Infection,Pneumonia,"Antibiotics, Rest"
-Emma Wong,10-04-1995,Female,"Sore Throat, Cough",Bacterial Infection,Strep Throat,Penicillin
-Daniel Neo,28-11-1987,Male,"Fatigue, Weakness",Anemia,Iron Deficiency,Iron Supplements
-Olivia Teo,03-06-2000,Female,"Anxiety, Rapid Heartbeat",Stress,Panic Disorder,Cognitive Therapy
-Jack Tan,15-09-1978,Male,Shortness of breath,Obesity,Sleep Apnea,CPAP Machine
-Sophia Goh,12-07-1992,Female,"Skin Rash, Itching",Allergies,Dermatitis,Topical Steroids
-Ryan Lim,07-01-2003,Male,"Cough, Fever",Viral Infection,Respiratory Infection,"Antivirals, Rest"
-,,,,,,
-Emily Koh,19-05-1984,Female,"Joint Pain, Fatigue",Rheumatoid Arthritis,Arthritis,NSAIDs
-Aiden Neo,22-08-1997,Male,"Dizziness, Fatigue",Dehydration,Heat Exhaustion,"Hydration, Rest"
-Nora Tan,10-01-1989,Female,"Headache, Sensitivity",Tension,Tension Headache,"Relaxation, NSAIDs"
-Eli Goh,09-12-1994,Male,"Abdominal Pain, Bloating",Overeating,Indigestion,Antacids
-Emma Lim,02-03-2001,Female,"Nausea, Cramps",Menstrual Cycle,Menstrual Cramps,Pain Relievers
-Benjamin Tan,26-07-1976,Male,"Chest Pain, Shortness of breath",Heart Disease,Coronary Artery Disease,"Nitroglycerin,Aspirin"
-,,,,,,
-Mia Neo,18-10-1995,Female,"Fatigue, Difficulty breathing",Hypothyroidism,Thyroid Disorder,Levothyroxine
-,,,,,,
-Noah Koh,15-03-1980,Male,"Fever, Chills",Infection,Pneumonia,"Antibiotics, Rest"
-Ava Lim,11-07-1993,Female,"Cough, Shortness of breath", COVID-19 Exposure,COVID-19,"Isolation, Fluids"
-Liam Goh,16-09-1987,Male,"Itching, Redness",Allergies,Allergic Reaction,Antihistamine
-Sophie Tan,18-02-1975,Female,"Muscle Pain, Fatigue",Overexertion,Muscle Strain,"Rest, Pain Relievers"
-Noah Lim,21-05-2005,Male,"Nausea, Vomiting",Food Poisoning,Gastroenteritis,Oral Rehydration
-Ella Wong,05-10-1999,Female,"Headache, Blurred Vision",Eye Strain,Vision Fatigue,"Rest, Eye Exercises"
-Lucas Neo,14-08-1986,Male,"Stomach Pain, Diarrhea",Food Poisoning,Gastroenteritis,"Fluids, Bland Diet"
-Grace Koh,25-01-1971,Female,"Back Pain, Numbness",Sciatica,Herniated Disc,"Pain Relievers, PT"
-Aiden Tan,09-09-2002,Male,"Fever, Sore Throat",Viral Infection,Tonsillitis,"Fluids, Rest"
-Emma Lee,07-12-1994,Female,"Fatigue, Weakness",Chronic Fatigue Syndrome,Chronic Fatigue Syndrome,"Rest, Lifestyle"
-,,,,,,
-Sophia Teo,28-06-1985,Female,"Anxiety, Palpitations",Stress,Anxiety Disorder,"Therapy, Medication"
-Evan Lim,17-03-2003,Male,"Chest Pain, Shortness of breath",Physical Exertion,Muscle Overuse,"Rest, Stretching"
-,,,,,,
-Lily Tan,26-04-1990,Female,"Joint Pain, Swelling",Rheumatoid Arthritis,Arthritis,NSAIDs
-Leo Lim,13-07-1999,Male,"Nausea, Dizziness",Motion Sickness,Motion Sickness,Dimenhydrinate
-Sophia Koh,29-11-1977,Female,"Fatigue, Weakness",Chronic Fatigue Syndrome,Chronic Fatigue Syndrome,"Rest, Lifestyle"
-,,,,,,
-Isaac Goh,18-02-1998,Male,"Fever, Chills",Infection,Pneumonia,"Antibiotics, Rest"
-Emma Tan,03-07-1992,Female,"Cough, Shortness of breath",COVID-19 Exposure,COVID-19,"Isolation, Fluids"
-Grace Neo,16-09-1989,Female,"Itching, Redness",Allergies,Allergic Reaction,Antihistamine
-Ryan Koh,18-02-1978,Male,"Muscle Pain, Fatigue",Overexertion,Muscle Strain,"Rest, Pain Relievers"
-Sophia Tan,21-05-2005,Female,"Nausea, Vomiting",Food Poisoning,Gastroenteritis,Oral Rehydration
-David Lim,05-10-1998,Male,"Headache, Blurred Vision",Eye Strain,Vision Fatigue,"Rest, Eye Exercises"
-Oliver Wang,14-08-1984,Male,"Stomach Pain, Diarrhea",Food Poisoning,Gastroenteritis,"Fluids, Bland Diet"
-Ava Yeo,25-01-1972,Female,"Back Pain, Numbness",Sciatica,Herniated Disc,"Pain Relievers, PT"
-Lucas Tan,09-09-1999,Male,"Fever, Sore Throat",Viral Infection,Tonsillitis,"Fluids, Rest"
-Grace Lee,07-12-1991,Female,"Fatigue, Weakness",Chronic Fatigue Syndrome,Chronic Fatigue Syndrome,"Rest, Lifestyle"
-,,,,,,
-Sophie Neo,28-06-1984,Female,"Anxiety, Palpitations",Stress,Anxiety Disorder,"Therapy, Medication"
-Evan Teo,17-03-2001,Male,"Chest Pain, Shortness of breath",Physical Exertion,Muscle Overuse,"Rest, Stretching"
-,,,,,,
-Lily Lim,26-04-1995,Female,"Joint Pain, Swelling",Rheumatoid Arthritis,Arthritis,NSAIDs
-Leo Goh,13-07-1990,Male,"Nausea, Dizziness",Motion Sickness,Motion Sickness,Dimenhydrinate
-Sophia Koh,29-11-1979,Female,"Fatigue, Weakness",Chronic Fatigue,Chronic Fatigue,"Rest, Lifestyle"
-,,,,Syndrome,Syndrome,
-Isaac Tan,18-02-2000,Male,"Fever, Chills",Infection,Pneumonia,"Antibiotics, Rest"
-,,,,,,
-Emma Wong,10-04-1995,Female,"Sore Throat, Cough",Bacterial Infection,Strep Throat,Penicillin
-Daniel Neo,28-11-1987,Male,"Fatigue, Weakness",Anemia,Iron Deficiency,Iron Supplements
-Olivia Teo,03-06-2000,Female,"Anxiety, Rapid Heartbeat",Stress,Panic Disorder,Cognitive Therapy
-Jack Tan,15-09-1978,Male,Shortness of breath,Obesity,Sleep Apnea,CPAP Machine
-Sophia Goh,12-07-1992,Female,"Skin Rash, Itching",Allergies,Dermatitis,Topical Steroids
-Ryan Lim,07-01-2003,Male,"Cough, Fever",Viral Infection,Respiratory,"Antivirals, Rest"
-,,,,,Infection,
-Emily Koh,19-05-1984,Female,"Joint Pain, Fatigue",Rheumatoid Arthritis,Arthritis,NSAIDs
-Aiden Neo,22-08-1997,Male,"Dizziness, Fatigue",Dehydration,Heat Exhaustion,"Hydration, Rest"
-Nora Tan,10-01-1989,Female,"Headache, Sensitivity",Tension,Tension Headache,"Relaxation, NSAIDs"
-Eli Goh,09-12-1994,Male,"Abdominal Pain, Bloating",Overeating,Indigestion,Antacids
-Emma Lim,02-03-2001,Female,"Nausea, Cramps",Menstrual Cycle,Menstrual Cramps,Pain Relievers
-Benjamin Tan,26-07-1976,Male,"Chest Pain, Shortness",Heart Disease,Coronary Artery,Nitroglycerin
-,,,of breath,,Disease,Aspirin
-Mia Neo,18-10-1995,Female,"Fatigue, Difficulty",Hypothyroidism,Thyroid Disorder,Levothyroxine
-,,br,eathing,,,
-Noah Koh,15-03-1980,Male,"Fever, Chills",Infection,Pneumonia,"Antibiotics, Rest"
-Ava Lim,11-07-1993,Female,"Cough, Shortness of breat",h COVID-19 Exposure,COVID-19,"Isolation, Fluids"
-Liam Goh,16-09-1987,Male,"Itching, Redness",Allergies,Allergic Reaction,Antihistamine
-Sophie Tan,18-02-1975,Female,"Muscle Pain, Fatigue",Overexertion,Muscle Strain,"Rest, Pain Relievers"
-Noah Lim,21-05-2005,Male,"Nausea, Vomiting",Food Poisoning,Gastroenteritis,Oral Rehydration
-Ella Wong,05-10-1999,Female,"Headache, Blurred Vision",Eye Strain,Vision Fatigue,"Rest, Eye Exercises"
-Lucas Neo,14-08-1986,Male,"Stomach Pain, Diarrhea",Food Poisoning,Gastroenteritis,"Fluids, Bland Diet"
-Grace Koh,25-01-1971,Female,"Back Pain, Numbness",Sciatica,Herniated Disc,"Pain Relievers, PT"
-Aiden Tan,09-09-2002,Male,"Fever, Sore Throat",Viral Infection,Tonsillitis,"Fluids, Rest"
-Emma Lee,07-12-1994,Female,"Fatigue, Weakness",Chronic Fatigue,Chronic Fatigue,"Rest, Lifestyle"
-,,,,Syndrome,Syndrome,
-Sophia Teo,28-06-1985,Female,"Anxiety, Palpitations",Stress,Anxiety Disorder,"Therapy, Medication"
-Evan Lim,17-03-2003,Male,"Chest Pain, Shortness",Physical Exertion,Muscle Overuse,"Rest, Stretching"
-,,,of breath,,,
-Lily Tan,26-04-1990,Female,"Joint Pain, Swelling",Rheumatoid Arthritis,Arthritis,NSAIDs
-Leo Lim,13-07-1999,Male,"Nausea, Dizziness",Motion Sickness,Motion Sickness,Dimenhydrinate
-Sophia Koh,29-11-1977,Female,"Fatigue, Weakness",Chronic Fatigue Syndrome,Chronic Fatigue Syndrome,"Rest, Lifestyle"
-,,,,,,
-Isaac Goh,18-02-1998,Male,"Fever, Chills",Infection,Pneumonia,"Antibiotics, Rest"
-Emma Tan,03-07-1992,Female,"Cough, Shortness of breath",COVID-19 Exposure,COVID-19,"Isolation, Fluids"
-Grace Neo,16-09-1989,Female,"Itching, Redness",Allergies,Allergic Reaction,Antihistamine
-Ryan Koh,18-02-1978,Male,"Muscle Pain, Fatigue",Overexertion,Muscle Strain,"Rest, Pain Relievers"
-Sophia Tan,21-05-2005,Female,"Nausea, Vomiting",Food Poisoning,Gastroenteritis,Oral Rehydration
-David Lim,05-10-1998,Male,"Headache, Blurred Vision",Eye Strain,Vision Fatigue,"Rest, Eye Exercises"
-Oliver Wang,14-08-1984,Male,"Stomach Pain, Diarrhea",Food Poisoning,Gastroenteritis,"Fluids, Bland Diet"
-Ava Yeo,25-01-1972,Female,"Back Pain, Numbness",Sciatica,Herniated Disc,"Pain Relievers, PT"
-Lucas Tan,09-09-1999,Male,"Fever, Sore Throat",Viral Infection,Tonsillitis,"Fluids, Rest"
-Grace Lee,07-12-1991,Female,"Fatigue, Weakness",Chronic Fatigue Syndrome,Chronic Fatigue Syndrome,"Rest, Lifestyle"
-,,,,,,
-Sophie Neo,28-06-1984,Female,"Anxiety, Palpitations",Stress,Anxiety Disorder,"Therapy, Medication"
-Evan Teo,17-03-2001,Male,"Chest Pain, Shortness of breath",Physical Exertion,Muscle Overuse,"Rest, Stretching"
-,,,,,,
-Lily Lim,26-04-1995,Female,"Joint Pain, Swelling",Rheumatoid Arthritis,Arthritis,NSAIDs
-Leo Goh,13-07-1990,Male,"Nausea, Dizziness",Motion Sickness,Motion Sickness,Dimenhydrinate
-Sophia Koh,29-11-1979,Female,"Fatigue, Weakness",Chronic FatigueSyndrome,Chronic Fatigue Syndrome,"Rest, Lifestyle"
-,,,,,,
-Isaac Tan,18-02-2000,Male,"Fever, Chills",Infection,Pneumonia,"Antibiotics, Rest"
-Emma Wong,10-04-1995,Female,"Sore Throat, Cough",Bacterial Infection ,Strep Throat     ,Penicillin
-Daniel Neo,28-11-1987,Male,"Fatigue, Weakness",Anemia              ,Iron Deficiency ,Iron Supplements
-Olivia Teo,03-06-2000,Female,"Anxiety, Rapid Heartbeat",Stress              ,Panic Disorder  ,Cognitive Therapy
-Jack Tan,15-09-1978,Male,Shortness of breath,Obesity             ,Sleep Apnea     ,CPAP Machine
-Sophia Goh,12-07-1992,Female,"Skin Rash, Itching",Allergies           ,Dermatitis      ,Topical Steroids
-Ryan Lim,07-01-2003,Male,"Cough, Fever",Viral Infection     ,Respiratory     AntiInfection,"virals, Rest"
-,,,,,,
-Emily Koh,19-05-1984,Female,"Joint Pain, Fatigue",Rheumatoid Arthritis ,Arthritis     ,  NSAIDs
-Aiden Neo,22-08-1997,Male,"Dizziness, Fatigue",Dehydration         ,Heat Exhaustion Hydr,"ation, Rest"
-Nora Tan,10-01-1989,Female,"Headache, Sensitivity",Tension             ,Tension Headache Rel,"axation, NSAIDs"
-Eli Goh,09-12-1994,Male,"Abdominal Pain, Bloating",Overeating          ,Indigestion     Anta,cids
-Emma Lim,02-03-2001,Female,"Nausea, Cramps",Menstrual Cycle    ,Menstrual Cramps Pai,n Relievers
-Benjamin Tan,26-07-1976,Male,"Chest Pain, Shortnessof breath",Heart Disease       ,Coronary Artery Disease   ,"Nitroglycerin,Aspirin"
-,,,,,      ,
-Mia Neo,18-10-1995,Female,"Fatigue, Difficulty breathing",Hypothyroidism      ,Disease         , Levothyroxine
-,,,,,,
-Noah Koh,15-03-1980,Male,"Fever, Chills",Infection           ,Pheumonia      ," Antibiotics, Rest"
-Ava Lim,11-07-1993,Female,"Cough, Shortness of breath",COVID-19 Exposure   ,COVID-19      ,"  Isolation, Fluids"
-Liam Goh,16-09-1987,Male,"Itching, Redness",Allergies           ,Allergic Reaction An,tihistamine
-Sophie Tan,18-02-1975,Female,"Muscle Pain, Fatigue",Overexertion        ,Muscle Strain  ," Rest, Pain Relievers"
-Noah Lim,21-05-2005,Male,"Nausea, Vomiting",Food Poisoning  ,Muscle Strain  ,Rehydration
-Ella Wong,05-10-1999,Female,"Headache, Blurred Vision",Eye Strain          ,Muscle Strain  ,Eye Exercises
+Disease,Medicine,Disease_Description,Medicine_Description
+Fungal infection,"Antifungal Cream (Clotrimazole), Fluconazole","Fungal infection is an inflammatory condition caused by fungi multiplying on the skin. It typically leads to redness, intense itching, and scaling.","Antifungal medications work by breaking down the cell walls of the fungi, preventing them from growing and spreading further."
+Allergy,"Antihistamines (Cetirizine, Loratadine)","An allergy is an immune system response to a foreign substance (allergen) that is typically harmless, causing symptoms like sneezing, itching, or swelling.","Antihistamines block the release of histamine, a chemical produced by your body during an allergic reaction, thereby stopping the symptoms."
+GERD (Acid Reflux),"Omeprazole, Pantoprazole, Antacids",GERD is a digestive disorder where stomach acid frequently flows back into the tube connecting your mouth and stomach (esophagus).,"Proton pump inhibitors and antacids neutralize stomach acid and reduce acid production, allowing the esophageal lining to heal."
+Chronic cholestasis,Ursodeoxycholic acid (Ursodiol),"Chronic cholestasis occurs when the flow of bile from the liver is reduced or blocked, leading to a buildup of bile acids in the bloodstream.","Medications like Ursodiol help improve bile flow, protect liver cells, and reduce the toxic levels of bile acids in your body."
+Drug Reaction,"Antihistamines, Corticosteroids","A drug reaction is an adverse, unintended physical response to a medication, often manifesting as a severe rash, fever, or swelling.",Corticosteroids and antihistamines suppress the overactive immune response and immediately reduce severe inflammation and allergic symptoms.
+Peptic Ulcer,"Proton Pump Inhibitors (Omeprazole), Amoxicillin","Peptic ulcers are open sores that develop on the inside lining of the stomach, upper small intestine, or esophagus due to acid damage.","Antibiotics eradicate H. pylori bacteria if present, while acid reducers decrease stomach acid to create a healing environment for the sore."
+AIDS,Antiretroviral Therapy (ART),"AIDS is a chronic, potentially life-threatening condition caused by the human immunodeficiency virus (HIV), which damages the immune system.","Antiretroviral therapy (ART) prevents the virus from multiplying, allowing the immune system to recover and preventing opportunistic infections."
+Type 2 Diabetes,"Metformin, Insulin, Glipizide","Type 2 Diabetes is a chronic condition that affects the way your body metabolizes sugar (glucose), leading to elevated blood sugar levels.",Medications like Metformin improve your body's sensitivity to insulin and decrease the amount of glucose produced by your liver.
+Gastroenteritis,"Oral Rehydration Salts (ORS), Loperamide","Gastroenteritis is an intestinal infection causing diarrhea, cramps, nausea, vomiting, and fever, often referred to as stomach flu.",Treatment focuses on rehydration solutions and anti-nausea medications. Antibiotics are only used if the cause is definitively bacterial.
+Asthma,"Albuterol Inhaler, Fluticasone","Asthma is a condition in which your airways narrow and swell and may produce extra mucus, causing difficulty breathing and wheezing.","Inhaled corticosteroids reduce airway inflammation, while quick-relief inhalers relax the airway muscles to quickly restore normal breathing."
+Hypertension,"Amlodipine, Lisinopril, Losartan",Hypertension (high blood pressure) is a common condition in which the long-term force of the blood against your artery walls is dangerously high.,Antihypertensives (like ACE inhibitors or beta-blockers) relax blood vessels and decrease the heart's workload to safely lower blood pressure.
+Migraine,"Sumatriptan, Ibuprofen, Rizatriptan","A migraine is a severe, throbbing headache often accompanied by nausea, vomiting, and extreme sensitivity to light and sound.",Triptans and pain relievers work by blocking pain pathways in the brain and constricting blood vessels to stop the migraine attack.
+Cervical spondylosis,"NSAIDs (Ibuprofen), Muscle Relaxants","Cervical spondylosis is age-related wear and tear affecting the spinal disks in your neck, often leading to chronic neck pain and stiffness.",Muscle relaxants and NSAIDs reduce severe muscle spasms in the neck and significantly decrease joint inflammation and pain.
+Paralysis (brain hemorrhage),"Blood thinners, Physical Therapy",Paralysis from a brain hemorrhage involves loss of muscle function in parts of the body due to bleeding in the brain damaging motor pathways.,Initial medical focus is on stabilizing blood pressure and reducing brain swelling. Long-term management relies on neuro-rehabilitation.
+Jaundice,"IV Fluids, Rest, Phototherapy (if severe)","Jaundice is a condition where the skin and the whites of the eyes turn yellow due to a high level of bilirubin, indicating liver distress.",Treatment treats the underlying cause (like infection). Medications may be given to alleviate severe itching or aid liver function.
+Malaria,"Artemisinin-based combination therapy (ACT), Chloroquine",Malaria is a serious and sometimes fatal disease caused by a parasite that commonly infects a certain type of mosquito which feeds on humans.,"Antimalarial drugs aggressively target and kill the parasites residing in the liver and red blood cells, curing the infection."
+Chicken pox,"Acyclovir, Calamine Lotion, Paracetamol","Chickenpox is a highly contagious viral infection causing an itchy, blister-like rash on the skin, accompanied by fever and fatigue.",Antiviral medications can reduce the severity if given early. Antihistamines and calamine lotion are used to soothe intense itching.
+Dengue,"Paracetamol, IV Fluids (Avoid Aspirin/Ibuprofen)","Dengue is a mosquito-borne viral infection causing a severe flu-like illness, characterized by high fever, severe body aches, and fatigue.",There is no specific antiviral; treatment is purely supportive. Acetaminophen is used for pain; NSAIDs like ibuprofen must be avoided due to bleeding risks.
+Typhoid,"Antibiotics (Ciprofloxacin, Azithromycin)","Typhoid is a bacterial infection that can lead to a high fever, diarrhea, and vomiting. It is typically transmitted through contaminated food or water.",Specific antibiotics are the only effective treatment. They quickly kill the Salmonella bacteria causing the massive systemic infection.
+hepatitis A,"Rest, Hydration, No specific medication",Hepatitis A is a highly contagious liver infection caused by the hepatitis A virus. It ranges from a mild illness to a severe sickness lasting months.,There is no specific treatment; the body clears the virus on its own. Supportive care focuses on maintaining hydration and nutrition.
+Hepatitis B,"Antiviral medications (Entecavir, Tenofovir)",Hepatitis B is a serious liver infection caused by the hepatitis B virus that is easily preventable by a vaccine. It can become a chronic condition.,"Chronic cases require antiviral medications to slow the virus's ability to damage the liver, combined with regular liver monitoring."
+Hepatitis C,Direct-acting antivirals (DAAs) like Sofosbuvir,"Hepatitis C is a viral infection that causes liver inflammation, sometimes leading to serious liver damage. The virus spreads through contaminated blood.",Direct-acting antiviral (DAA) tablets are highly effective and can cure most cases of Hepatitis C within 8 to 12 weeks.
+Hepatitis D,Pegylated interferon alpha,Hepatitis D is a severe viral liver disease that only occurs in people who are already infected with the Hepatitis B virus.,"Treatment involves specialized interferons. It is notoriously difficult to treat, making management of the underlying Hepatitis B crucial."
+Hepatitis E,"Rest, Hydration, Ribavirin (if chronic)","Hepatitis E is a liver disease caused by the hepatitis E virus, mainly transmitted through drinking water contaminated with fecal matter.",It usually resolves on its own without specific medical treatment. Hospitalization is only required for pregnant women or severe cases.
+Alcoholic hepatitis,"Corticosteroids, Pentoxifylline, Abstinence",Alcoholic hepatitis is inflammation of the liver caused by drinking alcohol. It typically occurs after years of heavy drinking.,"Corticosteroids may be used to rapidly reduce severe liver inflammation. However, total abstinence from alcohol is the only true treatment."
+Tuberculosis (Recovery Phase),"Isoniazid, Rifampin, Pyrazinamide",Tuberculosis is a potentially serious infectious bacterial disease that mainly affects the lungs. The recovery phase requires months of medication.,A strict regimen of multiple powerful antibiotics must be taken for 6-9 months to completely eradicate the resilient TB bacteria.
+Common Cold,"Decongestants, Antihistamines, Paracetamol","The common cold is a viral infection of your nose and throat (upper respiratory tract). It's usually harmless, although it might not feel that way.","Decongestants relieve nasal stuffiness, while pain relievers manage headaches and fever. There is no cure; medicines only manage symptoms."
+Bronchial Pneumonia (Recovery),"Antibiotics (Amoxicillin, Azithromycin)","Bronchial pneumonia is an infection that inflames the air sacs in the lungs, which may fill with fluid or pus. Recovery takes time and patience.","After the initial course of antibiotics clears the infection, expectorants may still be used to help clear lingering mucus from the lungs."
+Dimorphic hemmorhoids(piles),"Topical creams (Preparation H), Hydrocortisone","Hemorrhoids are swollen veins in your lower rectum and anus, similar to varicose veins. They can cause discomfort, itching, and bleeding.",Topical creams containing hydrocortisone reduce swelling and pain. Stool softeners are often prescribed to prevent straining during bowel movements.
+Coronary Artery Disease,"Aspirin, Statins (Atorvastatin), Beta-blockers","Coronary artery disease develops when the major blood vessels that supply your heart become damaged or diseased, usually due to plaque buildup.","Statins aggressively lower cholesterol, while blood thinners prevent clots. Beta-blockers reduce the heart's workload by slowing the heart rate."
+Varicose Veins,"Compression stockings, Diosmin (Daflon)","Varicose veins are twisted, enlarged veins. Any superficial vein may become varicosed, but the veins most commonly affected are those in your legs.","While surgery is an option for severe cases, compression stockings are the primary medical tool used to forcefully assist blood flow back up to the heart."
+Hypothyroidism,Levothyroxine (Synthroid),"Hypothyroidism (underactive thyroid) is a condition in which your thyroid gland doesn't produce enough of certain crucial hormones, slowing metabolism.","Synthetic thyroid hormone (Levothyroxine) is taken daily to precisely restore adequate hormone levels, reversing the symptoms of a slowed metabolism."
+Hyperthyroidism,"Methimazole, Propylthiouracil (PTU), Beta-blockers","Hyperthyroidism (overactive thyroid) occurs when your thyroid gland produces too much of the hormone thyroxine, dangerously accelerating your body's metabolism.",Anti-thyroid medications gradually reduce the symptoms by preventing the thyroid gland from producing excess amounts of hormones.
+Hypoglycemia,"Glucose tablets, Dextrose injections","Hypoglycemia is a condition characterized by an abnormally low level of blood sugar (glucose), your body's main energy source.","Immediate treatment requires consuming fast-acting carbohydrates. For severe, emergency cases, a glucagon injection rapidly raises blood sugar."
+Osteoarthritis,"Acetaminophen, NSAIDs, Duloxetine","Osteoarthritis is the most common form of arthritis, occurring when the protective cartilage that cushions the ends of your bones wears down over time.","NSAIDs and topical analgesics reduce joint pain and inflammation. In severe cases, corticosteroid injections provide temporary, powerful relief."
+Rheumatoid Arthritis,"DMARDs (Methotrexate), Biologics, NSAIDs","Rheumatoid arthritis is a chronic inflammatory disorder where the body's immune system mistakenly attacks its own tissues, primarily the joints.",Disease-modifying antirheumatic drugs (DMARDs) dramatically slow the progression of the disease and save the joints and other tissues from permanent damage.
+(vertigo) Paroymsal  Positional Vertigo,"Meclizine, Epley maneuver","BPPV is one of the most common causes of vertigo, a sudden sensation that you're spinning or that the inside of your head is spinning.","Medications like Meclizine suppress the vestibular system to reduce severe dizziness and nausea, though physical maneuvers are the true cure."
+Acne,"Benzoyl Peroxide, Salicylic Acid, Isotretinoin","Acne is a skin condition that occurs when your hair follicles become plugged with oil and dead skin cells, leading to whiteheads, blackheads, or pimples.",Topical retinoids unclog pores and prevent dead cells from building up. Oral antibiotics reduce inflammation and kill acne-causing bacteria.
+Urinary tract infection,"Antibiotics (Nitrofurantoin, Ciprofloxacin)","A UTI is an infection in any part of your urinary system (kidneys, ureters, bladder, urethra). It causes a strong, persistent urge to urinate and a burning sensation.",A targeted course of antibiotics quickly kills the specific bacteria causing the infection. Pain relievers may be given to numb the bladder.
+Psoriasis,"Topical Corticosteroids, Methotrexate, Biologics","Psoriasis is a skin disease that causes a rash with itchy, scaly patches, most commonly on the knees, elbows, trunk, and scalp. It is an immune-mediated disease.",Topical corticosteroids reduce inflammation and slow massive skin cell buildup. Systemic biologic drugs target specific parts of the immune system.
+Impetigo,"Topical antibiotics (Mupirocin), Oral antibiotics","Impetigo is a highly contagious skin infection that mainly affects infants and children, appearing as red sores that quickly rupture, ooze, and form a honey-colored crust.",Prescription antibiotic ointments or creams applied directly to the sores quickly clear the infection. Oral antibiotics are used for widespread cases.
