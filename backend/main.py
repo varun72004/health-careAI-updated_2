@@ -14,16 +14,16 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from typing import List
 
-from database import engine, Base, get_db
-import models
-import schemas
+from backend.database import engine, Base, get_db
+from backend import models
+from backend import schemas
 import os
 from dotenv import load_dotenv
 
 import math
 from sqlalchemy import or_
 
-from logic import predict_disease_and_recommend, features_list, valid_symptoms
+from backend.logic import predict_disease_and_recommend, features_list, valid_symptoms
 
 # Load environment variables from .env file
 load_dotenv()
